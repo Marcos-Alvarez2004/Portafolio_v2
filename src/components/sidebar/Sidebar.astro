@@ -1,0 +1,48 @@
+<header class="fixed left-0 flex justify-center h-full w-auto italic">
+  <nav class="p-8">
+   <div class="mb-52">
+    <h1 class="text-3xl">Marcos Alvarez</h1>
+    <p class="font-medium text-color-dark">Full-Stack Developer</p>
+   </div>
+    <ul class="flex flex-col justify-center gap-y-8 font-bold">      
+       <a href="#" class="flex items-center active">
+        <span class="w-6 h-1 bg-color-dark/40 transition-all duration-300 ease-in"></span>
+          <li class="ml-4 opacity-40 tracking-widest">INICIO</li>
+       </a>     
+       <a href="#" class="flex items-center">
+        <span class="w-6 h-1 bg-color-dark/40 transition-all duration-300 ease-in"></span>
+          <li class="ml-4 opacity-40 tracking-widest">PROYECTOS</li>
+       </a>
+       <a href="#" class="flex items-center">
+        <span class="w-6 h-1 bg-color-dark/40 transition-all duration-300 ease-in"></span>
+          <li class="ml-4 opacity-40 tracking-widest">SOBRE MI</li>
+       </a>
+       <a href="#" class="flex items-center">
+        <span class="w-6 h-1 bg-color-dark/40 transition-all duration-300 ease-in"></span>
+          <li class="ml-4 opacity-40 tracking-widest">CONTACTO</li>
+       </a>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  a:hover span {
+    width: 4rem;
+    background-color: var(--color-dark);
+  }
+
+  a:hover li {
+    color: var(--color-dark);
+    opacity: 1;
+  }
+
+  a.active li {
+    color: var(--color-dark);
+    opacity: 1;
+  }
+
+  a.active span {
+    width: 4rem;
+    background-color: var(--color-dark);
+  }
+</style>

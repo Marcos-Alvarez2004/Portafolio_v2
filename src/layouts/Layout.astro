@@ -4,16 +4,19 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+// FONT OPEN-SANS weights 300-800
+import '@fontsource-variable/open-sans/wdth.css';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="autor" content="Marcos Alvarez Medero">
+		<meta name="descripcion" content="Portafolio linkdIn: " />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
@@ -21,30 +24,16 @@ const { title } = Astro.props;
 	</body>
 </html>
 <style is:global>
+
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+		--color-dark: #892cdc;
+		--color-light: #bc6ff1;
 	}
+
 	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
+		font-family: 'Open Sans Variable', sans-serif;
+		background: #111111;
+		color: #f5f5f5;
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+
 </style>
