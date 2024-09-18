@@ -1,15 +1,29 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from 'src/sections/Hero.astro';
-import Sidebar from 'src/components/sidebar/Sidebar.astro';
+// LAYOUT
+import Layout from '@/layouts/Layout.astro';
+// SIDEBAR
+import Sidebar from '@/components/sidebar/Sidebar.astro';
+// FOOTER
+import Footer from "@/components/footer/Footer.astro"
+// SECTIONS
+import Projects from '@/sections/Projects.astro';
+import About from '@/sections/About.astro';
+import Contact from '@/sections/Contact.astro';
 ---
 
 <Layout title="Marcos Alvarez">
 	<Sidebar />
-	<main class="pl-72 pt-10">
-		<Hero />
+	<main class="pl-96">
+		<!-- <Hero /> -->
+		<Projects />
+		<About />
+		<Contact />
+		<Footer />
 	</main>
 </Layout>
 
-
-	
+<style>
+	main {
+		position: relative;
+	}
+</style>

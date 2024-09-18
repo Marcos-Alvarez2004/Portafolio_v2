@@ -12,19 +12,24 @@ import '@fontsource-variable/open-sans/wdth.css';
 <!doctype html>
 <html lang="es">
 	<head>
+		<!-- METADATOS -->
 		<meta charset="UTF-8" />
 		<meta name="autor" content="Marcos Alvarez Medero">
 		<meta name="descripcion" content="Portafolio linkdIn: " />
 		<meta name="viewport" content="width=device-width" />
+		<!-- BOXICON -->
+		<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+		<!-- FAVICON -->
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<!-- TITLE -->
 		<title>{title}</title>
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
+<!-- GLOBAL STYLE -->
 <style is:global>
-
 	:root {
 		--color-dark: #892cdc;
 		--color-light: #bc6ff1;
@@ -36,4 +41,13 @@ import '@fontsource-variable/open-sans/wdth.css';
 		color: #f5f5f5;
 	}
 
+	section {
+		position: relative;
+		display: flex;
+		min-height: 100vh;
+		flex-direction: column;
+		justify-content:  center;
+		align-items: center;
+		margin: 0 1rem;
+	}
 </style>

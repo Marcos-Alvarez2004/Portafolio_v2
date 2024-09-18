@@ -1,31 +1,48 @@
-<header class="fixed left-0 flex justify-center h-full w-auto italic">
-  <nav class="p-8">
-   <div class="mb-52">
-    <h1 class="text-3xl">Marcos Alvarez</h1>
+<header class="fixed left-0 flex justify-center h-full w-auto italic z-10">
+  <nav class="p-4 flex flex-col justify-between items-center">
+   <!-- LOGO AND TEXT -->
+    <div>
+      <h1 class="text-3xl">Marcos Alvarez</h1>
     <p class="font-medium text-color-dark">Full-Stack Developer</p>
-   </div>
-    <ul class="flex flex-col justify-center gap-y-8 font-bold">      
-       <a href="#" class="flex items-center active">
-        <span class="w-6 h-1 bg-color-dark/40 transition-all duration-300 ease-in"></span>
-          <li class="ml-4 opacity-40 tracking-widest">INICIO</li>
-       </a>     
-       <a href="#" class="flex items-center">
-        <span class="w-6 h-1 bg-color-dark/40 transition-all duration-300 ease-in"></span>
+    </div>
+   
+    <ul class="flex flex-col justify-center font-semibold">        
+       <a href="#" class="flex items-center active py-4">
+        <span class="w-6 h-0.5 bg-color-dark/40 transition-all duration-100"></span>
           <li class="ml-4 opacity-40 tracking-widest">PROYECTOS</li>
        </a>
-       <a href="#" class="flex items-center">
-        <span class="w-6 h-1 bg-color-dark/40 transition-all duration-300 ease-in"></span>
+       <a href="#about" class="flex items-center py-4">
+        <span class="w-6 h-0.5 bg-color-dark/40 transition-all duration-100"></span>
           <li class="ml-4 opacity-40 tracking-widest">SOBRE MI</li>
        </a>
-       <a href="#" class="flex items-center">
-        <span class="w-6 h-1 bg-color-dark/40 transition-all duration-300 ease-in"></span>
+       <a href="#contact" class="flex items-center py-4">
+        <span class="w-6 h-0.5 bg-color-dark/40 transition-all duration-100"></span>
           <li class="ml-4 opacity-40 tracking-widest">CONTACTO</li>
        </a>
+    </ul>
+    <!-- SOCIAL -->
+    <ul class="flex text-2xl">
+      <a href="#" class="social">
+        <li class="cursor-pointer p-4">
+          <i class='bx bxl-github opacity-60'></i>
+        </li>
+      </a>
+      <a href="#" class="social">
+        <li class="cursor-pointer p-4">
+          <i class='bx bxl-linkedin-square opacity-60'></i>
+        </li>
+      </a>
+      <a href="#" class="social">
+        <li class="cursor-pointer p-4">
+          <i class='bx bxl-gmail opacity-60'></i>
+        </li>
+      </a>
     </ul>
   </nav>
 </header>
 
 <style>
+  /* LINKS */
   a:hover span {
     width: 4rem;
     background-color: var(--color-dark);
@@ -44,5 +61,16 @@
   a.active span {
     width: 4rem;
     background-color: var(--color-dark);
+  }
+
+  /* SOCIAL */
+  .social:hover i {
+    color: var(--color-dark);
+    opacity: 1;
+  }
+
+  .social:hover li {
+    transform: translate(0, -1rem);
+    transition: all 100ms cubic-bezier(0.4,0,0.2,1);
   }
 </style>
