@@ -3,20 +3,26 @@
    <!-- LOGO AND TEXT -->
     <div>
       <h1 class="text-3xl">Marcos Alvarez</h1>
-    <p class="font-medium text-color-dark">Full-Stack Developer</p>
+    <p class="font-medium">Full-Stack Developer</p>
+      <!-- CHANGE THEME -->
+   <div class="mt-8 text-center border-general rounded w-max mx-auto">
+    <i id="btnTheme" class='bx bx-moon dark-mode p-4 cursor-pointer' aria-label="Activar modo oscuro"></i>
+    <i id="btnTheme" class='bx bx-sun light-mode p-4 cursor-pointer' aria-label="Activar modo blanco"></i>
+   </div>     
     </div>
-   
-    <ul class="flex flex-col justify-center font-semibold">        
+  
+   <!-- NAVIGATION -->  
+    <ul class="flex flex-col justify-center font-semibold">   
        <a href="#" class="flex items-center active py-4">
-        <span class="w-6 h-0.5 bg-color-dark/40 transition-all duration-100"></span>
+        <span class="w-6 h-0.5 transition-all duration-100"></span>
           <li class="ml-4 opacity-40 tracking-widest">PROYECTOS</li>
        </a>
        <a href="#about" class="flex items-center py-4">
-        <span class="w-6 h-0.5 bg-color-dark/40 transition-all duration-100"></span>
+        <span class="w-6 h-0.5 transition-all duration-100"></span>
           <li class="ml-4 opacity-40 tracking-widest">SOBRE MI</li>
        </a>
        <a href="#contact" class="flex items-center py-4">
-        <span class="w-6 h-0.5 bg-color-dark/40 transition-all duration-100"></span>
+        <span class="w-6 h-0.5 transition-all duration-100"></span>
           <li class="ml-4 opacity-40 tracking-widest">CONTACTO</li>
        </a>
     </ul>
@@ -41,31 +47,80 @@
   </nav>
 </header>
 
+<script>
+  	const darkBtnMode = document.querySelector(".dark-mode");
+			const lightBtnMode = document.querySelector(".light-mode");
+			
+			darkBtnMode?.addEventListener("click", setLightMode)
+			lightBtnMode?.addEventListener("click", setDarkMode)
+		
+			function setDarkMode() {
+				setUserTheme("dark");
+			}
+		
+			function setLightMode() {
+				setUserTheme("light")
+		}
+		
+    // LOCALSTORAGE THEME
+    const userTheme = localStorage.getItem("theme")
+    const darkQuery = window.matchMedia("(prefers-color-theme): dark")
+    
+    if (userTheme === "dark" || (!userTheme && darkQuery.matches)) {
+      setTheme("dark")
+    }
+    
+    darkQuery.addEventListener("change", function (e) {
+      if (!localStorage.getItem("theme"))
+      setTheme(e.matches ? "dark" : "light")
+    })
+    
+    function setTheme(newTheme: any) {
+      document.documentElement.setAttribute("data-theme", newTheme)
+    }
+    
+		function setUserTheme(newTheme: any) {
+      document.documentElement.setAttribute("data-theme", newTheme)
+      localStorage.setItem("theme", newTheme)
+		}
+</script>
+
 <style>
+  /* BTNS CHANGE THEME */
+  .bx-moon:hover, .bx-sun:hover {
+    color: var(--color-primary);
+  }
   /* LINKS */
+  span {
+    background-color: var(--color-primary);
+    opacity: .4;
+  }
+
   a:hover span {
     width: 4rem;
-    background-color: var(--color-dark);
+    background-color: var(--color-primary);
+    opacity: 1;
   }
 
   a:hover li {
-    color: var(--color-dark);
+    color: var(--color-primary);
     opacity: 1;
   }
 
   a.active li {
-    color: var(--color-dark);
+    color: var(--color-primary);
     opacity: 1;
   }
 
   a.active span {
     width: 4rem;
-    background-color: var(--color-dark);
+    background-color: var(--color-primary);
+    opacity: 1;
   }
 
   /* SOCIAL */
   .social:hover i {
-    color: var(--color-dark);
+    color: var(--color-primary);
     opacity: 1;
   }
 

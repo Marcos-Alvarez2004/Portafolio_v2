@@ -4,27 +4,32 @@ import TitleSections from "@/components/TitleSections.astro"
 
 <section id="contact">
   <TitleSections title_section="Contacto" />
-  <div class="flex flex-col justify-center items-center border border-color-dark p-8 rounded-sm">
+  <div class="flex flex-col justify-center items-center p-8 rounded-sm">
     <form class="flex flex-col gap-4 justify-center items-center">
      <div class="flex flex-col md:flex-row gap-4 w-full">
       <div class="input-group w-full">
-        <input required type="text" autocomplete="off" class="input">
+        <input required type="text" class="input">
         <label class="user-label">Nombre</label>
       </div>
       <div class="input-group w-full">
-        <input required type="email" autocomplete="off" class="input">
+        <input required type="email" class="input">
         <label class="user-label">Gmail</label>
       </div>
       </div>
-        <textarea class="w-full bg-transparent border border-[#333333] rounded p-4 min-h-56 resize-none" maxlength="500" placeholder="Mensaje"></textarea>
-      <button class="bg-color-dark px-20 py-4 text-center rounded-md my-8 ml-auto" type="submit">Enviar</button>
+        <div class="input-group w-full mt-8">
+          <textarea required class="w-full input bg-transparent rounded p-4 min-h-56 resize-none" maxlength="500"></textarea>
+        <label class="user-label">Mensaje</label>
+        </div>
+      <button class="px-20 py-4 text-center rounded-md my-8 ml-auto" type="submit">Enviar</button>
     </form>
   </div>
 </section>
 
 <style>
-::placeholder {
-  color: #999999;
+form {
+  border: var(--border-primary);
+  padding: 2rem;
+  border-radius: 0.125rem;
 }
 
 /* INPUT */
@@ -33,8 +38,7 @@ import TitleSections from "@/components/TitleSections.astro"
 }
 
 .input {
-  border: solid .1rem #333333;
-  
+  border: var(--border-secondary);
   width: 100%;
   border-radius: .25rem;
   background: none;
@@ -45,21 +49,21 @@ import TitleSections from "@/components/TitleSections.astro"
 .user-label {
   position: absolute;
   left: .8rem;
-  color: #999999;
+  color: var(--color-general);
   pointer-events: none;
   transform: translateY(1rem);
   transition: 150ms cubic-bezier(0.4,0,0.2,1);
 }
 
-.input:focus, input:valid, textarea:focus {
+.input:focus {
   outline: none;
-  border: .1rem solid var(--color-dark);
+  border: .1rem solid var(--color-primary);
 }
 
-.input:focus ~ label, input:valid ~ label {
+.input:focus ~ label {
   transform: translateY(-50%) scale(0.8);
- background-color: #111111;
+  background-color: var(--bg-primary);
   padding: 0 .5rem;
-  color: var(--color-dark);
+  color: var(--color-primary);
 }
 </style>
