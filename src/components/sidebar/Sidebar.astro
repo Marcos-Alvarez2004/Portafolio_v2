@@ -1,4 +1,4 @@
-<header class="fixed left-0 flex justify-center h-full w-auto italic z-10">
+<header class="fixed left-0 hidden xl:flex justify-center h-full w-auto italic z-10 border-r">
   <nav class="p-4 flex flex-col justify-between items-center">
    <!-- LOGO AND TEXT -->
     <div>
@@ -13,7 +13,7 @@
   
    <!-- NAVIGATION -->  
     <ul class="flex flex-col justify-center font-semibold">   
-       <a href="#" class="flex items-center active py-4">
+       <a href="#" class="flex items-center py-4">
         <span class="w-6 h-0.5 transition-all duration-100"></span>
           <li class="ml-4 opacity-40 tracking-widest">PROYECTOS</li>
        </a>
@@ -64,15 +64,15 @@
 		
     // LOCALSTORAGE THEME
     const userTheme = localStorage.getItem("theme")
-    const darkQuery = window.matchMedia("(prefers-color-theme): dark")
+    const darkQuery = window.matchMedia("(prefers-color-theme): light")
     
-    if (userTheme === "dark" || (!userTheme && darkQuery.matches)) {
-      setTheme("dark")
+    if (userTheme === "light" || (!userTheme && darkQuery.matches)) {
+      setTheme("light")
     }
     
     darkQuery.addEventListener("change", function (e) {
       if (!localStorage.getItem("theme"))
-      setTheme(e.matches ? "dark" : "light")
+      setTheme(e.matches ? "light" : "dark")
     })
     
     function setTheme(newTheme: any) {

@@ -31,19 +31,21 @@ import '@fontsource-variable/open-sans/wdth.css';
 <!-- GLOBAL STYLE -->
 <style is:global>
 	:root {
-		--color-primary: #bc6ff1;
-		--bg-primary: #f5f5f5;
-		--color-general: #111111;
-		--border-primary: 1px solid var(--color-primary);
-		--border-secondary: 1px solid #999999;
-	}
-
-	:root[data-theme="dark"] {
 		--color-primary: #892cdc;
 		--bg-primary: #111111;
 		--color-general: #f5f5f5;
 		--border-primary: 1px solid var(--color-primary);
 		--border-secondary: 1px solid #333333;
+		--color-gray: #333333;
+	}
+
+	:root[data-theme="light"] {
+		--color-primary: #bc6ff1;
+		--bg-primary: #f5f5f5;
+		--color-general: #111111;
+		--border-primary: 1px solid var(--color-primary);
+		--border-secondary: 1px solid #999999;
+		--color-gray: #999999;
 	}
 	
 	:root[data-theme="light"] .dark-mode {
@@ -63,6 +65,8 @@ import '@fontsource-variable/open-sans/wdth.css';
 		background: var(--bg-primary);
 		color: var(--color-general);
 		scroll-behavior: smooth;
+		overflow-y: scroll;
+		overflow-x: hidden;
 	}
 
 	h1 {
@@ -72,15 +76,22 @@ import '@fontsource-variable/open-sans/wdth.css';
 	button {
 		color: var(--color-general);
 		background-color: var(--color-primary);
+		font-weight: 700;
 	}
 
 	section {
 		position: relative;
 		display: flex;
-		min-height: 100vh;
 		flex-direction: column;
 		justify-content:  center;
 		align-items: center;
+		padding: 2rem 0;
 		margin: 0 1rem;
+	}
+
+	@media (width >= 768px) {
+		section {
+			padding: 4rem 0;
+		}
 	}
 </style>
