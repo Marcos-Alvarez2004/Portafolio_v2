@@ -1,118 +1,186 @@
-<header class="fixed left-0 hidden xl:flex justify-center h-full w-auto italic z-10 border-r">
-  <nav class="p-4 flex flex-col justify-between items-center">
-   <!-- LOGO AND TEXT -->
-    <div>
-      <h1 class="text-3xl">Marcos Alvarez</h1>
-    <p class="font-medium">Full-Stack Developer</p>
-      <!-- CHANGE THEME -->
-   <div class="mt-8 text-center border-general rounded w-max mx-auto">
-    <i id="btnTheme" class='bx bx-moon dark-mode p-4 cursor-pointer' aria-label="Activar modo oscuro"></i>
-    <i id="btnTheme" class='bx bx-sun light-mode p-4 cursor-pointer' aria-label="Activar modo blanco"></i>
-   </div>     
+
+<header class="fixed z-50 w-full flex justify-between items-center">
+  <button class="lg:hidden text-2xl" id="menuIcon" area-label="Abrir Menu"><i class="bx bx-menu"></i></button>
+  <h1>Marcos Alvarez</h1>
+  <nav id="menuMobile">
+    <div class="flex justify-between items-center borderDiv pb-4">
+      <div>
+        <h1 class="text-2xl italic">Marcos Alvarez</h1>
+        <h4 class="text-sm font-medium">Full-Stack Developer</h4>
+      </div>
+      <button class="lg:hidden text-3xl" area-label="Cerrar Menu" id="closeIcon"><i class="bx bx-x"></i></button>
     </div>
-  
-   <!-- NAVIGATION -->  
-    <ul class="flex flex-col justify-center font-semibold">   
-       <a href="#" class="flex items-center py-4">
-        <span class="w-6 h-0.5 transition-all duration-100"></span>
-          <li class="ml-4 opacity-40 tracking-widest">PROYECTOS</li>
-       </a>
-       <a href="#about" class="flex items-center py-4">
-        <span class="w-6 h-0.5 transition-all duration-100"></span>
-          <li class="ml-4 opacity-40 tracking-widest">SOBRE MI</li>
-       </a>
-       <a href="#contact" class="flex items-center py-4">
-        <span class="w-6 h-0.5 transition-all duration-100"></span>
-          <li class="ml-4 opacity-40 tracking-widest">CONTACTO</li>
-       </a>
-    </ul>
-    <!-- SOCIAL -->
-    <ul class="flex text-2xl">
-      <a href="#" class="social">
-        <li class="cursor-pointer p-4">
-          <i class='bx bxl-github opacity-60'></i>
-        </li>
-      </a>
-      <a href="#" class="social">
-        <li class="cursor-pointer p-4">
-          <i class='bx bxl-linkedin-square opacity-60'></i>
-        </li>
-      </a>
-      <a href="#" class="social">
-        <li class="cursor-pointer p-4">
-          <i class='bx bxl-gmail opacity-60'></i>
-        </li>
-      </a>
-    </ul>
+    <ul class="h-full flex flex-col justify-center text-center">  
+     <a href="#" class="link active text-xl py-8 w-full"><span class="opacity-50 tracking-widest">Proyectos</span></a>
+     <a href="#about" class="link text-xl borderLink py-8 w-full"><span class="opacity-50 tracking-widest">Sobre Mi</span></a>
+     <a href="#contact" class="link text-xl w-full py-8"><span class="opacity-50 tracking-widest">Contacto</span></a>
+      </ul>
+     <ul class="text-2xl flex justify-center items-center mb-8 pt-4 boderSocial">
+      <a href="#" class="p-4 social opacity-80"><i class='bx bxl-github'></i></a>
+      <a href="#" class="p-4 social opacity-80"><i class='bx bxl-linkedin-square'></i></a>
+      <a href="#" class="p-4 social opacity-80"><i class='bx bxl-gmail'></i></a>
+     </ul>
   </nav>
+
 </header>
 
 <script>
-  	const darkBtnMode = document.querySelector(".dark-mode");
-			const lightBtnMode = document.querySelector(".light-mode");
+const menuIcon = document.getElementById('menuIcon');
+const closeIcon = document.getElementById('closeIcon');
+const menuMobile = document.getElementById('menuMobile');
+
+// Abrir el menú
+menuIcon?.addEventListener('click', () => {
+  menuMobile?.classList.add('menu-open');
+});
+
+// Cerrar el menú
+closeIcon?.addEventListener('click', () => {
+  menuMobile?.classList.remove('menu-open');
+});
+
+      // const menu = document.querySelector("#menu")
+      // const open = document.querySelector("#open")
+      // const close = document.querySelector("#close")
+
+      // open?.addEventListener("click", ()=> {
+      //   menu?.classList.add("visible")
+      // })
+
+      // close?.addEventListener("click", ()=> {
+      //   menu?.classList.remove("visible")
+      // })
+
+  	//   const darkBtnMode = document.querySelector(".dark-mode");
+		// 	const lightBtnMode = document.querySelector(".light-mode");
 			
-			darkBtnMode?.addEventListener("click", setLightMode)
-			lightBtnMode?.addEventListener("click", setDarkMode)
+		// 	darkBtnMode?.addEventListener("click", setLightMode)
+		// 	lightBtnMode?.addEventListener("click", setDarkMode)
 		
-			function setDarkMode() {
-				setUserTheme("dark");
-			}
+		// 	function setDarkMode() {
+		// 		setUserTheme("dark");
+		// 	}
 		
-			function setLightMode() {
-				setUserTheme("light")
-		}
+		// 	function setLightMode() {
+		// 		setUserTheme("light")
+		// }
 		
-    // LOCALSTORAGE THEME
-    const userTheme = localStorage.getItem("theme")
-    const darkQuery = window.matchMedia("(prefers-color-theme): light")
+    // // LOCALSTORAGE THEME
+    // const userTheme = localStorage.getItem("theme")
+    // const darkQuery = window.matchMedia("(prefers-color-theme): light")
     
-    if (userTheme === "light" || (!userTheme && darkQuery.matches)) {
-      setTheme("light")
-    }
+    // if (userTheme === "light" || (!userTheme && darkQuery.matches)) {
+    //   setTheme("light")
+    // }
     
-    darkQuery.addEventListener("change", function (e) {
-      if (!localStorage.getItem("theme"))
-      setTheme(e.matches ? "light" : "dark")
-    })
+    // darkQuery.addEventListener("change", function (e) {
+    //   if (!localStorage.getItem("theme"))
+    //   setTheme(e.matches ? "light" : "dark")
+    // })
     
-    function setTheme(newTheme: any) {
-      document.documentElement.setAttribute("data-theme", newTheme)
-    }
+    // function setTheme(newTheme: any) {
+    //   document.documentElement.setAttribute("data-theme", newTheme)
+    // }
     
-		function setUserTheme(newTheme: any) {
-      document.documentElement.setAttribute("data-theme", newTheme)
-      localStorage.setItem("theme", newTheme)
-		}
+		// function setUserTheme(newTheme: any) {
+    //   document.documentElement.setAttribute("data-theme", newTheme)
+    //   localStorage.setItem("theme", newTheme)
+		// }
 </script>
 
 <style>
+header {
+  background-color: var(--bg-primary);
+  padding: 1rem;
+}
+
+h4 {
+  opacity: .3;
+}
+
+@media (width < 1024px) {
+  nav {
+  background-color: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  visibility: hidden;
+  transition: all .2s ease;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+nav .borderDiv {
+  border-bottom: 1px solid var(--color-primary);
+}
+
+nav .boderSocial {
+  border-top: 1px solid var(--color-primary);
+}
+
+button {
+  background-color: transparent;
+  color: var(--color-primary);
+}
+
+.link:hover {
+    background-color: #222;
+    opacity: 1;
+  }
+
+.link:hover span {
+  opacity: 1;
+}
+
+.borderLink {
+  border-top: 1px solid var(--color-primary);
+  border-bottom: 1px solid var(--color-primary);
+} 
+
+/* Agregada la clase menu-open para mostrar el menú */
+.menu-open {
+  transform: translateX(0);
+  visibility: visible;
+}
+}
+  
   /* BTNS CHANGE THEME */
   .bx-moon:hover, .bx-sun:hover {
     color: var(--color-primary);
   }
   /* LINKS */
-  span {
+  .bar {
     background-color: var(--color-primary);
     opacity: .4;
   }
 
-  a:hover span {
+  a:hover .bar {
     width: 4rem;
     background-color: var(--color-primary);
     opacity: 1;
   }
 
-  a:hover li {
+  .link:hover {
     color: var(--color-primary);
     opacity: 1;
   }
 
-  a.active li {
+  .active {
     color: var(--color-primary);
     opacity: 1;
   }
 
-  a.active span {
+  .active span {
+    color: var(--color-primary);
+    opacity: 1;
+  }
+
+  a.active .bar {
     width: 4rem;
     background-color: var(--color-primary);
     opacity: 1;
@@ -128,4 +196,5 @@
     transform: translate(0, -1rem);
     transition: all 100ms cubic-bezier(0.4,0,0.2,1);
   }
+
 </style>
