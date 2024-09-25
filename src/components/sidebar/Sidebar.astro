@@ -1,4 +1,4 @@
-<header aria-labelledby="menuIcon" class="boxShadow fixed z-50 w-full lg:h-full lg:w-auto flex lg:flex-col justify-between items-center boxShadow">
+<header aria-labelledby="menuIcon" class="boxShadow fixed z-50 w-full lg:h-full lg:w-56 flex lg:flex-col justify-between items-center boxShadow">
   <!-- BTN RESPONSIVE -->
   <div class="flex justify-center items-center text-2xl gap-x-8 lg:hidden">
     <button id="menuOpenIcon"><i class="bx bx-menu"></i></button>
@@ -7,7 +7,7 @@
   </div>
  <!-- LOGO -->
   <h1 class="lg:hidden">Marcos Alvarez</h1>
-  <nav id="menuReponsive" class="flex flex-col justify-between items-center h-full">
+  <nav id="menuReponsive" class="flex flex-col justify-between items-center lg:w-full h-full">
     <div class="flex justify-between items-center borderDiv pb-4">
       <div>
         <h1 aria-labelledby="Marcos" class="text-2xl italic">Marcos Alvarez</h1>
@@ -16,11 +16,26 @@
       <!-- BTN RESPONSIVE OPEN MENU -->
       <button class="lg:hidden text-3xl" aria-labelledby="Cerrar Menu" id="closeMenuIcon"><i class="bx bx-x"></i></button>
     </div>
- <!-- LINKS PAGE -->
-    <ul class="h-full flex flex-col justify-center text-center lg:h-auto">  
-      <a href="#" class="link active text-xl py-8 w-full"><span class="opacity-50 tracking-widest">Proyectos</span></a>
-      <a href="#about" class="link text-xl borderLink py-8 w-full"><span class="opacity-50 tracking-widest">Sobre Mi</span></a>
-      <a href="#contact" class="link text-xl w-full py-8"><span class="opacity-50 tracking-widest">Contacto</span></a>
+  <!-- LINKS PAGE -->
+    <ul class="h-full text-xl flex flex-col justify-center text-center lg:w-full lg:h-auto">  
+      <li class="">
+        <a href="#" class="link active">
+          <span class="bar hidden lg:block"></span>
+          <span class="opacity-50 tracking-widest">Proyectos</span>
+        </a>
+      </li>
+      <li>
+      <a href="#about" class="link borderLink">
+        <span class="bar hidden lg:block"></span>
+        <span class="opacity-50 tracking-widest">Sobre Mi</span>
+        </a>
+      </li>
+      <li>
+        <a href="#contact" class="link">
+          <span class="bar hidden lg:block"></span>
+          <span class="opacity-50 tracking-widest">Contacto</span>
+        </a>
+      </li>
     </ul>
 <!-- BTNS THEME MODE -->
     <div class="hidden lg:flex justify-center items-center text-2xl">
@@ -109,7 +124,7 @@ h4 {
 }
 
 button {
-  background-color: var(--bg-btn-theme-mode);
+  background: var(--bg-btn-theme-mode);
   border-radius: 50%;
   width: 3rem;
   height: 3rem;
@@ -121,19 +136,30 @@ button:hover {
 }
 /* BOX SHADOW HEADER */
 .boxShadow {
-    box-shadow: 0 .3rem 1.5rem var(--bg-gray);
-    transition: all .2s ease;
-  }
-   
+  box-shadow: 0 .3rem 1.5rem var(--bg-gray);
+  transition: all .2s ease;
+}
+
 /* LINKS */
+.link {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 0;
+  font-style: italic;
+  font-weight: 500;
+}
+
 .bar {
-    background-color: var(--color-primary);
-    opacity: .4;
+  height: .1rem;
+  width: 2rem;
+  margin-right: 1rem;
+  background-color: var(--color-primary);
+  opacity: .4;
+  transition: width .2s ease;
 }
 
 .link:hover .bar {
   width: 4rem;
-  background-color: var(--color-primary);
   opacity: 1;
 }
 /* LINK HOVER */
@@ -156,7 +182,7 @@ button:hover {
   opacity: 1;
 }
 
-a.active .bar {
+.link.active .bar {
   width: 4rem;
   background-color: var(--color-primary);
   opacity: 1;
@@ -194,29 +220,34 @@ a.active .bar {
   padding: 1rem;
   overflow-y: auto;
   }
-/* BORDER RESPONSIVE */
-nav .borderDiv {
-  border-bottom: 1px solid var(--color-primary);
+  /* BORDER RESPONSIVE */
+  nav .borderDiv {
+    border-bottom: 1px solid var(--color-primary);
+    }
+
+  nav .boderSocial {
+    border-top: 1px solid var(--color-primary);
+    }
+
+  .link {
+    display: block;
+    padding: 2rem 0;
   }
 
-nav .boderSocial {
-  border-top: 1px solid var(--color-primary);
-  }
-
-.borderLink {
-  border-top: 1px solid var(--color-primary);
-  border-bottom: 1px solid var(--color-primary);
-  } 
-/* HOVER RESPONSIVE */
-.link:hover {
-    background-color: var(--bg-gray);
-    opacity: 1;
-  }
-/* ABRIR MENU RESPONSIVE */
-.menuOpen {
-  transform: translateX(0);
-  visibility: visible;
-  }
+  .borderLink {
+    border-top: 1px solid var(--color-primary);
+    border-bottom: 1px solid var(--color-primary);
+    } 
+  /* HOVER RESPONSIVE */
+  .link:hover {
+      background-color: var(--bg-gray);
+      opacity: 1;
+    }
+  /* ABRIR MENU RESPONSIVE */
+  .menuOpen {
+    transform: translateX(0);
+    visibility: visible;
+    }
 }
 
 </style>
