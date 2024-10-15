@@ -1,9 +1,55 @@
-<article class="flex gap-4 flex-col items-center h-auto w-full bg-color-light dark:bg-color-dark rounded">
-  <div class="w-full h-28">
-    <div class="w-full h-full bg-red-200 text-center rounded-tl rounded-tr">Imagen</div>
-  </div>
-  <div class="p-2">
-    <h2>Title Card</h2>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum fugiat earum quidem perferendis optio reprehenderit quae quam animi veritatis iste.</p>
+---
+interface Props {
+  titleCard: string,
+  descriptionCard: string,
+  linkCard: string,
+  imgCard: string,
+  altImgCard: string,
+  tagsTecnology: string[]
+}
+
+const {titleCard, descriptionCard, linkCard, imgCard, altImgCard, tagsTecnology} = Astro.props
+---
+
+<article class="md:p-2 flex flex-col md:flex-row mb-16 rounded h-auto">
+  <a href={linkCard} class="h-full w-full lg:w-1/2 lg:h-full block">
+  <img src={imgCard} alt={altImgCard} class="w-full h-full object-contain md:rounded rounded-t" />
+  </a>
+  <div class="md:pl-4 md:p-0 p-4">
+    <a href={linkCard} class="flex items-center justify-center md:justify-start gap-x-2 my-8 md:my-0">
+      <span class="font-semibold text-xl md:text-lg md:font-medium hover:underline">{titleCard}</span>
+    </a>
+    <p class="md:mt-2 my-8 md:my-0 text-sm md:text-left">{descriptionCard}</p> 
+      <div class="my-8 md:my-6 flex flex-wrap justify-center items-center gap-4">
+        {tagsTecnology.map((tag) => (
+          <span class="tagsTecnology">{tag}</span>
+        ))}
+      </div>
   </div>
 </article>
+
+<style>
+  article {
+    background: var(--bg-btn-theme-mode);
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a {
+    color: var(--color-primary);
+  }
+
+  a:hover img {
+    outline: .2rem solid var(--color-primary);
+  }
+
+  .tagsTecnology {
+    background: var(--background-opacity);
+    color: var(--color-general);
+    padding: .2rem 1rem;
+    border-radius: .2rem;
+    font-size: 1rem;
+  }
+</style>

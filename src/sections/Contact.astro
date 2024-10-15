@@ -4,31 +4,12 @@ import TitleSections from "@/components/TitleSections.astro"
 
 <section id="contact" class="padd">
   <TitleSections title_section="Contacto" />
-  <div class="flex flex-col w-full md:w-3/4 form rounded-md">
-    <form class="flex flex-col gap-4 justify-center items-center gap-y-8">
-
-      <div class="flex justify-center items-center flex-col gap-4">
-        <h3 class="text-sm">Contacto por redes sociales:</h3>
-        <ul class="flex text-2xl">
-          <a href="#" class="social">
-            <li class="cursor-pointer hoverColor">
-              <i class='bx bxl-github opacity-60 px-4'></i>
-            </li>
-          </a>
-          <a href="#" class="social">
-            <li class="cursor-pointer hoverColor">
-              <i class='bx bxl-linkedin-square opacity-60 px-4'></i>
-            </li>
-          </a>
-          <a href="#" class="social">
-            <li class="cursor-pointer hoverColor">
-              <i class='bx bxl-gmail opacity-60 px-4'></i>
-            </li>
-          </a>
-        </ul>
-      </div>
-     <span>O</span>
-      <h3 class="text-sm">Contacto por formulario:</h3>
+  <div class="flex flex-col w-full form rounded-md">
+    <form class="flex flex-col gap-4 justify-center gap-y-8">
+      <h2 class="text-2xl text-l">Gracias por ver!</h2>
+      <p>Si deseas enviar un mensaje a mi correo <b class="underline">maaarcosaaavarez13@gmail.com</b><br>
+      También puedes rellenar las casillas o escribirme por mis redes sociales!
+      </p>
       <div class="input-group w-full">
         <input required type="text" class="input">
         <label class="user-label">Nombre</label>
@@ -40,17 +21,45 @@ import TitleSections from "@/components/TitleSections.astro"
         <div class="input-group w-full mt-4">
           <textarea required class="w-full input bg-transparent rounded min-h-56 resize-none" maxlength="500"></textarea>
         <label class="user-label">Mensaje</label>
+        </div>
+        
+      <div class="flex flex-col gap-y-8 lg:flex-row lg:gap-y-0 justify-center items-center">
+        <div class="flex justify-center items-center flex-col gap-4">
+          <h3 class="text-md underline">Redes sociales:</h3>
+          <ul class="flex text-3xl">
+            <a href="#">
+              <li class="cursor-pointer hoverColor">
+                <i class='bx bxl-github opacity-60 px-4'></i>
+              </li>
+            </a>
+            <a href="#">
+              <li class="cursor-pointer hoverColor">
+                <i class='bx bxl-linkedin-square opacity-60 px-4'></i>
+              </li>
+            </a>
+            <a href="#">
+              <li class="cursor-pointer hoverColor">
+                <i class='bx bxl-gmail opacity-60 px-4'></i>
+              </li>
+            </a>
+          </ul>
         </div>   
-          <button class="px-20 py-4 text-center rounded-md w-full lg:w-auto lg:ml-auto" type="submit">Enviar</button>
-    
+            <button class="py-4 text-center rounded-md w-full lg:w-1/2 lg:ml-auto" type="submit">
+              Enviar 
+            </button>
+      </div>
     </form>
   </div>
 </section>
 
 <style>
 .form {
-  border: var(--border-primary);
   padding: 1rem;
+}
+
+button:hover {
+  background-color: var(--background-hover-btn);
+  color: var(--color-hover-btn);
 }
 
 /* INPUT */
@@ -60,6 +69,10 @@ import TitleSections from "@/components/TitleSections.astro"
 
 span {
   color: var(--color-gray);
+}
+
+b, h3, h2 {
+  color: var(--color-primary);
 }
 
 .input {

@@ -17,23 +17,23 @@
       <button class="lg:hidden text-3xl" aria-labelledby="Cerrar Menu" id="closeMenuIcon"><i class="bx bx-x"></i></button>
     </div>
   <!-- LINKS PAGE -->
-    <ul class="h-full text-xl flex flex-col justify-center text-center lg:w-full lg:h-auto">  
+    <ul class="h-full text-lg flex flex-col justify-center text-center lg:w-full lg:h-auto">  
       <li class="">
         <a href="#" class="link active">
           <span class="bar hidden lg:block"></span>
-          <span class="opacity-50 tracking-widest">Proyectos</span>
+          <span class="tracking-widest">Proyectos</span>
         </a>
       </li>
       <li>
       <a href="#about" class="link borderLink">
         <span class="bar hidden lg:block"></span>
-        <span class="opacity-50 tracking-widest">Sobre Mi</span>
+        <span class="tracking-widest">Sobre Mi</span>
         </a>
       </li>
       <li>
         <a href="#contact" class="link">
           <span class="bar hidden lg:block"></span>
-          <span class="opacity-50 tracking-widest">Contacto</span>
+          <span class="tracking-widest">Contacto</span>
         </a>
       </li>
     </ul>
@@ -44,9 +44,9 @@
     </div>
 <!-- SOCIAL LINKS -->
     <ul class="text-2xl flex justify-center items-center lg:mb-0 mb-2 lg:pt-0 pt-4 boderSocial">
-      <a href="#" class="p-4 social opacity-80"><i class='bx bxl-github'></i></a>
-      <a href="#" class="p-4 social opacity-80"><i class='bx bxl-linkedin-square'></i></i></a>
-      <a href="#" class="p-4 social opacity-80"><i class='bx bxl-gmail'></i></a>
+      <a href="#" class="p-4 social"><i class='bx bxl-github'></i></a>
+      <a href="#" class="p-4 social"><i class='bx bxl-linkedin-square'></i></i></a>
+      <a href="#" class="p-4 social"><i class='bx bxl-gmail'></i></a>
     </ul>
   </nav>
 </header>
@@ -120,7 +120,7 @@ header {
 }
 
 h4 {
-  opacity: .3;
+  color: var(--color-gray);
 }
 
 button {
@@ -142,11 +142,13 @@ button:hover {
 
 /* LINKS */
 .link {
+  color: var(--color-gray);
   display: flex;
   align-items: center;
   padding: 1.5rem 0;
   font-style: italic;
   font-weight: 500;
+  transition: color .2s ease;
 }
 
 .bar {
@@ -169,12 +171,11 @@ button:hover {
 
 .link:hover {
   color: var(--color-primary);
-  opacity: 1;
 }
 /* ACTIVE LINK */
 .active {
   color: var(--color-primary);
-  opacity: 1;
+  transition: color .2s ease;
 }
 
 .active span {
@@ -190,6 +191,7 @@ button:hover {
 /* SOCIAL */
 .social i {
   transition: all .2s ease;
+  color: var(--color-gray);
 }
 /* SOCIAL HOVER */
 .social:hover i {

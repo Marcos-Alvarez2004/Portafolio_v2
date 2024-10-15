@@ -1,16 +1,21 @@
 ---
 import CardProject from "@/components/Projects/CardProject.astro"
 import TitleSections from "@/components/TitleSections.astro"
+import {projects} from "@/components/data"
 ---
 
 <section id="projects" class="padd">
   <TitleSections title_section="Proyectos" />
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-    <CardProject />
-    <CardProject />
-    <CardProject />
-    <CardProject />
-    <CardProject />
-    <CardProject />
+  <div class="grid grid-cols-1">
+      {projects.map((project) => (
+        <CardProject 
+          titleCard={project.titleCard}
+          altImgCard={project.altImgCard}
+          linkCard={project.linkCard}
+          descriptionCard={project.descriptionCard}
+          imgCard={project.imgCard}
+          tagsTecnology={project.tagsTecnology}
+        />
+      ))}
   </div>
 </section>

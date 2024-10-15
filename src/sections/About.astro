@@ -4,9 +4,81 @@ import TitleSections from "@/components/TitleSections.astro"
 
 <section id="about" class="padd">
   <TitleSections title_section="Sobre Mí" />
-  <div class="bg-red-200 w-64 h-64 rounded-full">
-    <div class=" w-full h-full text-center rounded-full">Foto</div>
-  </div>
-  <h2 class="my-8">Esta es mi historia</h2>
-  <p class="lg:w-1/2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam omnis sunt ea? Accusantium iusto, ut amet porro odit quos, id ad voluptas explicabo ipsa laudantium sunt ducimus quod soluta, vero illo doloremque. Molestias soluta ipsam aliquam enim veniam sit debitis, consequuntur laudantium quos voluptatem veritatis quod accusantium ducimus beatae cum natus nostrum maiores fugit, maxime est officia. Quo, deleniti numquam?</p>
+      <div class="w-full h-full px-2">
+          <div class="mb-16">
+            <p class="w-full">
+              <h3 class="mb-4 text-xl"></h3>
+              Hey soy Marcos Alvarez Medero, tengo 21 años y vivo en Buenos Aires, Argentina. El principial rol que me desempeño es Full-stack developer. Desde joven siempre me llamo la atención como se realizan los sitios web y todas sus funciones, he comenzado en este mundo hace aproximadamente 2 años.
+            <br>
+            <br>  
+             He realizado mis primeros proyectos con javascript, html y css. Pasado un tiempo empece a utilizar React que es mi framework más dominado, en cuanto a sus librerias y sintaxis. Node.js junto a Express son mis lenguajes de mayor preferencia al trabajar para el lado del servidor. Las bases de datos que más utilizo son sql: MySQL y postgress, noSQL: mongodb.  
+                <ul>
+                 <h4 class="mb-4 mt-8 underline">Tecnologías más preferentes:</h4>
+                <div>
+                 Html - Css - Javascript - React - Tailwind - Astro - Node - Express - Vite - Mongodb
+               </div>
+                <h4 class="mb-4 mt-8 underline">Tecnologías en general:</h4>
+                <div>
+                 Php - MySql - JQuery librerias - Redux - Handlebars   
+                </div>
+               </ul> 
+                </p>     
+             </div>
+             <div class="mb-16">
+            <h3 class="mb-4 text-xl font-semibold">Estudios</h3>
+            <p class="w-full">Mis comienzos son en la escuela secundaria, he visto un poco de html y desde ahi comenzó mi curiosidad por este mundo web, luego realice un curso de la utn sobre ems6, html, css, MySql, php y librerias de jquery - (titulo del curso). Aprendi lo basico pero donde más me desarrolle fue con mi siguiente curso también de la utn, estudie ems6, html, css, javascript, node js, express, react, mySql, handlebars.</p>  
+          </div>    
+        </div>
 </section>
+
+<style>
+
+button {
+  background-color: transparent;
+}
+
+button:hover {
+  color: var(--color-primary);
+  background-color: var(--bg-primary);
+}
+
+.background {
+  background-color: var(--bg-btn-theme-mode);
+}
+
+.background-content {
+  background-color: var(--bg-primary);
+}
+
+
+  h4, h3 {
+    color: var(--color-primary);
+  }
+
+  /* .line {
+    background-color: var(--color-primary);
+    height: 100%;
+    width: .1rem;
+    margin-right: 2rem;
+    position: relative;
+  }
+
+  .line::after, .line::before{
+    content: "";
+    display: block;
+    height: 1rem;
+    width: 1rem;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+
+    position: absolute;
+    top: 0;
+    left: -.5rem;
+  }
+
+  .line::after {
+    top: 100%;
+    z-index: 1;
+  } */
+
+</style>
