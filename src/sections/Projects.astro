@@ -7,6 +7,7 @@ import {projects} from "@/components/data"
 <section id="projects" class="padd">
   <TitleSections title_section="Proyectos" />
   <div class="grid grid-cols-1">
+    <p class="mb-8">Mis Proyectos más sobresalientes, si quieres ver más de mis trabajos te comparti mi link de github <b><a class="hover:underline" href="https://github.com/Marcos-Alvarez2004">https://github.com/Marcos-Alvarez2004</a></b></p>
       {projects.map((project) => (
         <CardProject 
           titleCard={project.titleCard}
@@ -19,3 +20,9 @@ import {projects} from "@/components/data"
       ))}
   </div>
 </section>
+
+<style>
+  a {
+    color: var(--color-primary);
+  }
+</style>
