@@ -1,49 +1,57 @@
 <header aria-labelledby="menuIcon" class="boxShadow fixed z-50 w-full lg:h-full lg:w-56 flex lg:flex-col justify-between items-center boxShadow">
-  <!-- BTN RESPONSIVE -->
-  <div class="flex justify-center items-center text-2xl gap-x-8 lg:hidden">
+  <!-- RESPONSIVE -->
+   <!-- LEFT MOBILE -->
+  <div class="flex justify-center items-center text-2xl gap-x-4 lg:hidden">
     <button id="menuOpenIcon"><i class="bx bx-menu"></i></button>
     <button class="dark-mode cursor-pointer" aria-label="Activar modo oscuro"><i class='bx bx-moon'></i></button>
     <button class="light-mode cursor-pointer" aria-label="Activar modo blanco"><i class='bx bx-sun'></i></button>
   </div>
- <!-- LOGO -->
-  <h1 class="lg:hidden">Marcos Alvarez</h1>
+ <!-- RIGHT MOBILE -->
+  <div class="lg:hidden flex justify-center items-center gap-x-2">
+    <a href="/hero.svg" class="btn px-4 py-2 rounded-md">Resumen</a>
+    <a href="#" class="text-3xl font-bold logo">M</a>
+  </div>
   <nav id="menuReponsive" class="flex flex-col justify-between items-center lg:w-full h-full">
-    <div class="flex justify-between items-center borderDiv pb-4">
+    <div class="flex lg:flex-col lg:gap-y-8 justify-between items-center borderDiv pb-4">
       <div>
         <h1 aria-labelledby="Marcos" class="text-2xl italic">Marcos Alvarez</h1>
         <h4 class="text-sm font-medium">Full-Stack Developer</h4>
       </div>
       <!-- BTN RESPONSIVE OPEN MENU -->
       <button class="lg:hidden text-3xl" aria-labelledby="Cerrar Menu" id="closeMenuIcon"><i class="bx bx-x"></i></button>
+      <!-- BTNS THEME MODE -->
+    <div class="hidden lg:flex justify-center items-center text-2xl">
+      <button class="dark-mode cursor-pointer" aria-label="Activar modo oscuro"><i class='bx bx-moon'></i></button>
+      <button class="light-mode cursor-pointer" aria-label="Activar modo blanco"><i class='bx bx-sun'></i></button>
+    </div>
     </div>
   <!-- LINKS PAGE -->
-    <ul class="h-full text-lg flex flex-col justify-center text-center lg:w-full lg:h-auto">  
-      <li class="">
-        <a href="#" class="link active">
+    <ul class="h-full text-lg flex flex-col justify-center text-center lg:w-full lg:h-auto menu">  
+      <li>
+        <a href="#proyectos" class="link" id="link-proyectos">
           <span class="bar hidden lg:block"></span>
           <span class="tracking-widest">Proyectos</span>
         </a>
       </li>
       <li>
-      <a href="#about" class="link borderLink">
+      <a href="#desarrollador" class="link borderLink" id="link-desarrollador">
         <span class="bar hidden lg:block"></span>
         <span class="tracking-widest">Sobre Mi</span>
         </a>
       </li>
       <li>
-        <a href="#contact" class="link">
+        <a href="#contacto" class="link" id="link-contacto">
           <span class="bar hidden lg:block"></span>
           <span class="tracking-widest">Contacto</span>
         </a>
       </li>
     </ul>
-<!-- BTNS THEME MODE -->
-    <div class="hidden lg:flex justify-center items-center text-2xl">
-      <button class="dark-mode cursor-pointer" aria-label="Activar modo oscuro"><i class='bx bx-moon'></i></button>
-      <button class="light-mode cursor-pointer" aria-label="Activar modo blanco"><i class='bx bx-sun'></i></button>
+    <!-- RESUMEN BTN -->
+    <div class="hidden lg:block">
+      <a href="/hero.svg" class="btn px-6 py-4 rounded-md">Resumen</a>
     </div>
 <!-- SOCIAL LINKS -->
-    <ul class="text-2xl flex justify-center items-center lg:mb-0 mb-2 lg:pt-0 pt-4 boderSocial">
+    <ul class="text-3xl flex justify-center items-center lg:mb-0 mb-2 lg:pt-0 pt-4 boderSocial">
       <a href="#" class="p-4 social"><i class='bx bxl-github'></i></a>
       <a href="#" class="p-4 social"><i class='bx bxl-linkedin-square'></i></i></a>
     </ul>
@@ -51,34 +59,47 @@
 </header>
 
 <script>
-const navigationLinks = document.querySelectorAll(".link");
+  // VARIABLES DEL MENU GENERAL
+  const navigationLinks = document.querySelectorAll('.menu a[href^="#"]');
+  // VARIABLES DEL MENU RESPONSIVE
+  const menuOpenIcon = document.getElementById('menuOpenIcon');
+  const closeMenuIcon = document.getElementById('closeMenuIcon');
+  const menuReponsive = document.getElementById('menuReponsive');
+  
+  // ABRIR EL MENÚ RESPONSIVE
+  menuOpenIcon?.addEventListener('click', () => {
+    menuReponsive?.classList.add('menuOpen');
+  });
+  
+  // CERRAR EL MENÚ RESPONSIVE CON X
+  closeMenuIcon?.addEventListener('click', () => {
+    menuReponsive?.classList.remove('menuOpen');
+  });
 
-function activeLink (e: any) {
-  navigationLinks.forEach((link)=> {
-    link.classList.remove("active")
+
+navigationLinks.forEach((link : any)=> {
+  // CERRAR MENU RESPONSIVE AL DAR CLICK EN EL LINK
+  link.addEventListener("click", () => {
+    menuReponsive?.classList.remove("menuOpen")
   })
-
-  e.target.classList.add("active")
-}
-
-navigationLinks.forEach((link) => {
-  link.addEventListener("click", activeLink)
 })
 
+document.addEventListener("DOMContentLoaded", ()=> {
+  const sections = document.querySelectorAll("section");
 
-// VARIABLES DEL MENU RESPONSIVE
-const menuOpenIcon = document.getElementById('menuOpenIcon');
-const closeMenuIcon = document.getElementById('closeMenuIcon');
-const menuReponsive = document.getElementById('menuReponsive');
-
-// ABRIR EL MENÚ RESPONSIVE
-menuOpenIcon?.addEventListener('click', () => {
-  menuReponsive?.classList.add('menuOpen');
-});
-
-// CERRAR EL MENÚ RESPONSIVE
-closeMenuIcon?.addEventListener('click', () => {
-  menuReponsive?.classList.remove('menuOpen');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const link = document.querySelector(`#link-${entry.target.id}`);
+      if (entry.isIntersecting) {
+        document.querySelector(".menu a.active")?.classList.remove("active")
+        link?.classList.add("active")
+      }
+    });
+  }, {
+    rootMargin: "-30% 0% -70% 0%"
+  });
+  
+  sections.forEach((section) => observer.observe(section))
 });
 
 // VARIABLES THEME CHANGES
@@ -145,14 +166,32 @@ button {
   transition: color .2s ease;
 }
 
+.logo {
+  color: var(--color-primary);
+  background-color: var(--bg-btn-theme-mode);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 button:hover {
   color: var(--color-primary);
 }
+
+.btn:hover {
+  background-color: var(--background-hover-btn);
+  color: var(--color-hover-btn);
+}
+
 /* BOX SHADOW HEADER */
 .boxShadow {
   box-shadow: 0 .3rem 1.5rem var(--bg-gray);
   transition: all .2s ease;
 }
+
 
 /* LINKS */
 .link {
@@ -189,7 +228,6 @@ button:hover {
 /* ACTIVE LINK */
 .active {
   color: var(--color-primary);
-  transition: color .2s ease;
 }
 
 .active span {

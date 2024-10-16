@@ -7,6 +7,8 @@ const { title } = Astro.props;
 
 // FONT OPEN-SANS weights 300-800
 import '@fontsource-variable/open-sans/wdth.css';
+// FONT NOTO-SERIF-ORIYA
+import '@fontsource-variable/noto-serif-oriya';
 ---
 
 <!doctype html>
@@ -27,13 +29,11 @@ import '@fontsource-variable/open-sans/wdth.css';
 	<body>
 		<slot />
 	</body>
-</html>
+	</html>
 <!-- GLOBAL STYLE -->
 <style is:global>
 	:root {
 		--color-primary: #892cdc;
-		--background-hover-btn: #bc6ff1;
-		--color-hover-btn: #111111;
 		--color-general: #f5f5f5;
 		--color-gray: #666666;
 		--bg-primary: #191919;
@@ -42,12 +42,12 @@ import '@fontsource-variable/open-sans/wdth.css';
 		--border-secondary: 1px solid #333333;
 		--bg-btn-theme-mode: #252526;
 		--background-opacity: rgba(137, 44, 220, .7);
+		--background-hover-btn: #bc6ff1;
+		--color-hover-btn: #111111;
 	}
 
 	:root[data-theme="light"] {
 		--color-primary: #bc6ff1;
-		--background-hover-btn: #892cdc;
-		--color-hover-btn: #f5f5f5;
 		--color-general: #111111;
 		--color-gray: #999999;
 		--bg-primary: #f5f5f5;
@@ -56,6 +56,8 @@ import '@fontsource-variable/open-sans/wdth.css';
 		--border-secondary: 1px solid #999999;
 		--bg-btn-theme-mode: #e5e5e5;
 		--background-opacity: rgba(188, 111, 241, .7);
+		--background-hover-btn: #892cdc;
+		--color-hover-btn: #f5f5f5;
 	}
 	
 	:root[data-theme="light"] .dark-mode {
@@ -78,7 +80,6 @@ import '@fontsource-variable/open-sans/wdth.css';
 		overflow-y: auto;
 		overflow-x: hidden;
 		transition: background .2s ease, color .2s ease;
-
 	}
 
 	h1 {
@@ -86,7 +87,7 @@ import '@fontsource-variable/open-sans/wdth.css';
 		transition: color .2s ease;
 	}
 
-	button {
+	button, .btn {
 		color: var(--color-general);
 		background-color: var(--color-primary);
 		font-weight: 700;
