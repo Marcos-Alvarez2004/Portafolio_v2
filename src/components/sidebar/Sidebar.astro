@@ -14,7 +14,7 @@
   <nav id="menuReponsive" class="flex flex-col justify-between items-center lg:w-full h-full">
     <div class="flex lg:flex-col lg:gap-y-8 justify-between items-center borderDiv pb-4">
       <div>
-        <h1 aria-labelledby="Marcos" class="text-2xl italic">Marcos Alvarez</h1>
+        <a href="#"><h1 aria-labelledby="Marcos" class="text-2xl italic">Marcos Alvarez</h1></a>
         <h4 class="text-sm font-medium">Full-Stack Developer</h4>
       </div>
       <!-- BTN RESPONSIVE OPEN MENU -->
@@ -48,7 +48,7 @@
     </ul>
     <!-- RESUMEN BTN -->
     <div class="hidden lg:block">
-      <a href="/hero.svg" class="btn px-6 py-4 rounded-md">Resumen</a>
+      <a href="/CV MARCOS ALVAREZ.pdf" class="btn px-6 py-4 rounded-md">Resumen</a>
     </div>
 <!-- SOCIAL LINKS -->
     <ul class="text-3xl flex justify-center items-center lg:mb-0 mb-2 lg:pt-0 pt-4 boderSocial">
@@ -65,6 +65,8 @@
   const menuOpenIcon = document.getElementById('menuOpenIcon');
   const closeMenuIcon = document.getElementById('closeMenuIcon');
   const menuReponsive = document.getElementById('menuReponsive');
+
+  const html = document.querySelector("html") as HTMLElement;
   
   // ABRIR EL MENÚ RESPONSIVE
   menuOpenIcon?.addEventListener('click', () => {
@@ -80,7 +82,11 @@
 navigationLinks.forEach((link : any)=> {
   // CERRAR MENU RESPONSIVE AL DAR CLICK EN EL LINK
   link.addEventListener("click", () => {
-    menuReponsive?.classList.remove("menuOpen")
+    menuReponsive?.classList.remove("menuOpen");
+    html.style.scrollBehavior = "smooth";
+    setTimeout(() => {
+      html.style.scrollBehavior = "auto";
+    }, 0)
   })
 })
 
@@ -256,7 +262,7 @@ button:hover {
   transition: all 100ms cubic-bezier(0.4,0,0.2,1);
 }
 /* MEDIA QUERY */
-@media (width < 1024px) {
+@media (width < 64rem) {
   nav {
   background-color: var(--bg-primary);
   display: flex;

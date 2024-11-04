@@ -1,46 +1,67 @@
 ---
 import TitleSections from "@/components/TitleSections.astro"
+import ScrollAnimation from "@/components/scrollAnimation/ScrollAnimation"
 ---
 
 <section id="contacto" class="padd">
-  <TitleSections title_section="Contacto" />
+  <ScrollAnimation client:load>
+    <TitleSections title_section="Contacto" />
+  </ScrollAnimation>
   <div class="flex flex-col w-full form rounded-md">
-    <form class="flex flex-col gap-4 justify-center gap-y-8">
-      <p>Si deseas contactarme, puedes enviarme un mensaje a mi correo electrónico: <b class="underline">maaarcosaaavarez13@gmail.com</b><br>
-      También puedes completar el formulario o contactarme a través de mis redes sociales.
-      </p>
+    <form action="https://formsubmit.co/20398d6c370c1176d9cdf1986fb0e085" method="POST" class="flex flex-col gap-4 justify-center gap-y-8">
+      <ScrollAnimation client:load>
+        <p>Si deseas contactarme, puedes enviarme un mensaje a mi correo electrónico: <b class="underline">maaarcosaaavarez13@gmail.com</b><br>
+        También puedes completar el formulario o contactarme a través de mis redes sociales.
+        </p>
+      </ScrollAnimation>
       <div class="input-group w-full">
-        <input required type="text" class="input">
-        <label class="user-label">Nombre</label>
+        <ScrollAnimation client:load>
+          <input required type="text" name="name" class="input">
+          <label class="user-label">Nombre</label>
+        </ScrollAnimation>
       </div>
       <div class="input-group w-full">
-        <input required type="text" class="input">
-        <label class="user-label">Gmail</label>
+        <ScrollAnimation client:load>
+          <input required type="text" name="email" class="input">
+          <label class="user-label">Gmail</label>
+        </ScrollAnimation>
       </div>
         <div class="input-group w-full mt-4">
-          <textarea required class="w-full input bg-transparent rounded min-h-56 resize-none" maxlength="500"></textarea>
-        <label class="user-label">Mensaje</label>
+          <ScrollAnimation client:load>
+            <textarea name="message" required class="w-full input bg-transparent rounded min-h-56 resize-none" maxlength="500"></textarea>
+            <label class="user-label">Mensaje</label>
+          </ScrollAnimation>
         </div>
         
-      <div class="flex flex-col gap-y-8 lg:flex-row lg:gap-y-0 justify-center items-center">
+      <div class="flex flex-col gap-y-8 lg:flex-row lg:gap-y-0 justify-center lg:justify-between lg:items-center">
         <div class="flex justify-center items-center flex-col gap-4">
-          <h3 class="text-md underline">Redes sociales:</h3>
+          <ScrollAnimation client:load>
+            <h3 class="text-md underline">Redes sociales:</h3>
+          </ScrollAnimation>
           <ul class="flex text-3xl">
+          <ScrollAnimation client:load>
             <a href="#">
               <li class="cursor-pointer hoverColor">
                 <i class='bx bxl-github opacity-60 px-4'></i>
               </li>
             </a>
+          </ScrollAnimation>
+          <ScrollAnimation client:load>
             <a href="#">
               <li class="cursor-pointer hoverColor">
                 <i class='bx bxl-linkedin-square opacity-60 px-4'></i>
               </li>
             </a>
+          </ScrollAnimation>
           </ul>
-        </div>   
-        <button class="py-4 text-center rounded-md w-full lg:w-1/2 lg:ml-auto" type="submit">
-          Enviar 
-        </button>      
+        </div>
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="http://localhost:4321/#contacto">
+        <ScrollAnimation client:load>   
+            <button class="py-4 text-center rounded-md lg:w-64 w-full" type="submit">
+              Enviar 
+            </button>
+        </ScrollAnimation>      
       </div>
     </form>
   </div>
@@ -99,4 +120,5 @@ b, h3, h2 {
   opacity: 1;
   color: var(--color-primary);
 }
+
 </style>

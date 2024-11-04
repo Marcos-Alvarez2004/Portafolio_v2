@@ -2,12 +2,17 @@
 import CardProject from "@/components/Projects/CardProject.astro"
 import TitleSections from "@/components/TitleSections.astro"
 import {projects} from "@/js/data"
+import ScrollAnimation from "@/components/scrollAnimation/ScrollAnimation"
 ---
 
 <section id="proyectos" class="padd">
-  <TitleSections title_section="Proyectos" />
+  <ScrollAnimation client:load>
+    <TitleSections title_section="Proyectos" />
+  </ScrollAnimation>
   <div class="grid grid-cols-1">
-    <p class="mb-8">Mis Proyectos más sobresalientes, si quieres ver más de mis trabajos te comparti mi link de github <b><a class="hover:underline" href="https://github.com/Marcos-Alvarez2004">https://github.com/Marcos-Alvarez2004</a></b></p>
+    <ScrollAnimation client:load>
+      <p class="mb-8">Mis Proyectos más sobresalientes, si quieres ver más de mis trabajos te comparti mi link de github <b><a class="hover:underline" href="https://github.com/Marcos-Alvarez2004">https://github.com/Marcos-Alvarez2004</a></b></p>
+    </ScrollAnimation>
       {projects.map((project) => (
         <CardProject 
           titleCard={project.titleCard}

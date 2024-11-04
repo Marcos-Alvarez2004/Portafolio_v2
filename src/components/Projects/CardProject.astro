@@ -1,4 +1,6 @@
 ---
+import ScrollAnimation from "@/components/scrollAnimation/ScrollAnimation"
+
 interface Props {
   titleCard: string,
   descriptionCard: string,
@@ -10,36 +12,42 @@ interface Props {
 
 const {titleCard, descriptionCard, linkCard, imgCard, altImgCard, tagsTecnology} = Astro.props
 ---
-
-<article class="md:p-2 flex flex-col md:flex-row mb-16 rounded h-auto">
-  <a href={linkCard} class="h-full w-full lg:w-1/2 lg:h-full block">
-  <img src={imgCard} alt={altImgCard} class="w-full h-full object-contain md:rounded rounded-t" />
+<ScrollAnimation client:load>
+  <a href={linkCard} class="md:p-2 flex flex-col md:flex-row mb-16 rounded h-auto w-auto">
+    <div class="h-full w-full lg:w-1/2 lg:h-3/4 block p-2">
+    <img src={imgCard} alt={altImgCard} class="w-full h-full object-cover md:rounded rounded-t" />
+    </div>
+    <div class="md:pl-4 md:p-0 p-4 w-full">
+      <div class="title flex items-center justify-center md:justify-start gap-x-2 my-8 md:my-0">
+        <span class="font-semibold text-xl md:text-lg md:font-medium hover:underline">{titleCard}</span>
+    </div>
+      <p class="md:mt-2 w-auto my-8 md:my-0 text-md md:text-left">{descriptionCard}</p> 
+        <div class="my-8 md:my-6 flex flex-wrap justify-center items-center gap-4">
+          {tagsTecnology.map((tag) => (
+            <span class="tagsTecnology">{tag}</span>
+          ))}
+        </div>
+    </div>
   </a>
-  <div class="md:pl-4 md:p-0 p-4">
-    <a href={linkCard} class="flex items-center justify-center md:justify-start gap-x-2 my-8 md:my-0">
-      <span class="font-semibold text-xl md:text-lg md:font-medium hover:underline">{titleCard}</span>
-    </a>
-    <p class="md:mt-2 my-8 md:my-0 text-sm md:text-left">{descriptionCard}</p> 
-      <div class="my-8 md:my-6 flex flex-wrap justify-center items-center gap-4">
-        {tagsTecnology.map((tag) => (
-          <span class="tagsTecnology">{tag}</span>
-        ))}
-      </div>
-  </div>
-</article>
+</ScrollAnimation>
 
 <style>
-  article {
-    background: var(--bg-btn-theme-mode);
+  a {
+    background-color: var(--bg-btn-theme-mode);
   }
 
   a:hover {
+    background: var(--bg-btn-theme-mode);
+  }
+
+  a:hover .title {
     text-decoration: underline;
   }
 
-  a {
+  .title {
     color: var(--color-primary);
   }
+
 
   a:hover img {
     outline: .2rem solid var(--color-primary);
@@ -51,5 +59,11 @@ const {titleCard, descriptionCard, linkCard, imgCard, altImgCard, tagsTecnology}
     padding: .2rem 1rem;
     border-radius: .2rem;
     font-size: 1rem;
+  }
+
+  @media (width > 63.75rem) {
+    a {
+      background: transparent;
+    }
   }
 </style>

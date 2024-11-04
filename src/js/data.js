@@ -1,65 +1,38 @@
 export const projects = [
   {
-    titleCard: "Title Card 1",
-    altImgCard: "alt 1",
-    linkCard: "#",
+    titleCard: "Gaming Eccomerce",
+    altImgCard: "Gaming Eccomerce",
+    linkCard: "https://gaming-eccomerce.onrender.com/",
     descriptionCard:
-      "Ipsum fugiat earum quidem perferendis optio reprehenderit quae quam animi veritatis iste Lorem ipsum dolor sit amet consectetur adipisicing elit.ipsum dolor sit amet consectetur adipisicing elit.",
-    imgCard: "/hero.svg",
-    tagsTecnology: ["Uno", "Dos", "Tres"],
-  },
-  {
-    titleCard: "Title Card 2",
-    altImgCard: "alt 2",
-    linkCard: "#",
-    descriptionCard:
-      "Ipsum fugiat earum quidem perferendis optio reprehenderit quae quam animi veritatis iste Lorem ipsum dolor sit amet consectetur adipisicing elit.ipsum dolor sit amet consectetur adipisicing elit.",
-    imgCard: "/hero.svg",
-    tagsTecnology: ["Uno", "Dos", "Tres", "Cuatro", "Cinco"],
-  },
-  {
-    titleCard: "Title Card 3",
-    altImgCard: "alt 3",
-    linkCard: "#",
-    descriptionCard:
-      "Ipsum fugiat earum quidem perferendis optio reprehenderit quae quam animi veritatis iste Lorem ipsum dolor sit amet consectetur adipisicing elit.ipsum dolor sit amet consectetur adipisicing elit.",
-    imgCard: "/hero.svg",
-    tagsTecnology: ["Uno", "Dos", "Tres"],
-  },
-  {
-    titleCard: "Title Card 4",
-    altImgCard: "alt 3",
-    linkCard: "#",
-    descriptionCard:
-      "Ipsum fugiat earum quidem perferendis optio reprehenderit quae quam animi veritatis iste Lorem ipsum dolor sit amet consectetur adipisicing elit.ipsum dolor sit amet consectetur adipisicing elit.",
-    imgCard: "/hero.svg",
-    tagsTecnology: ["Uno", "Dos", "Tres", "Cuatro", "Cinco"],
-  },
-  {
-    titleCard: "Title Card 5",
-    altImgCard: "alt 5",
-    linkCard: "#",
-    descriptionCard:
-      "Ipsum fugiat earum quidem perferendis optio reprehenderit quae quam animi veritatis iste Lorem ipsum dolor sit amet consectetur adipisicing elit.ipsum dolor sit amet consectetur adipisicing elit.",
-    imgCard: "/hero.svg",
-    tagsTecnology: ["Uno", "Dos", "Tres"],
-  },
-  {
-    titleCard: "Title Card 6",
-    altImgCard: "alt 6",
-    linkCard: "#",
-    descriptionCard:
-      "Ipsum fugiat earum quidem perferendis optio reprehenderit quae quam animi veritatis iste Lorem ipsum dolor sit amet consectetur adipisicing elit.ipsum dolor sit amet consectetur adipisicing elit.",
-    imgCard: "/hero.svg",
+      "Gaming Eccomerce es una web con sistema C.R.U.D. inspirado en plataformas como Booking o Airbnb, pero enfocado en la venta de periféricos para pc y consolas. El sitio cuenta con una base de datos que permite el registro de usuarios con contraseñas, donde cada usuario principal puede gestionar sus propios elementos de forma independiente. Si otro usuario accede con una cuenta diferente, podrá visualizar los elementos creados por los demas usuarios.",
+    imgCard: "/Proyecto 1.png",
     tagsTecnology: [
-      "Uno",
-      "Dos",
-      "Tres",
-      "Cuatro",
-      "Cinco",
-      "Uno",
-      "Dos",
-      "Tres",
+      "Vite",
+      "React js",
+      "Node js",
+      "Express js",
+      "Tailwind Css",
+      "Redux",
+      "MongoDB",
+      "Firebase",
     ],
+  },
+  {
+    titleCard: "Landing Velada del año IV",
+    altImgCard: "Landing Velada del año IV",
+    linkCard: "https://ladingvelada.netlify.app/",
+    descriptionCard:
+      "Landing page de 'La Velada del Año IV', inspirada en un video del canal Midudev. Es una web desarrollada principalmente hecha Astro, siendo uno de los proyectos en los que más aprendí a utilizar este framework. Los estilos se implementaron con Tailwind CSS y el fondo está creado con Three.js. Incluye varias funciones, como un temporizador y efectos interactivos al hacer scroll.",
+    imgCard: "/Proyecto 2.png",
+    tagsTecnology: ["Astro", "Tailwind Css", "Javascript", "Three js"],
+  },
+  {
+    titleCard: "Portafolio Astro",
+    altImgCard: "Portafolio Astro",
+    linkCard: "https://portafolioastro.netlify.app/",
+    descriptionCard:
+      "Portafolio Astro esta desarrollado con Astro, utilizando CSS para los estilos y JavaScript para las animaciones. Incluye un switcher que permite cambiar los colores de diversos elementos de la página, además de un interruptor para alternar entre modo oscuro y modo claro.",
+    imgCard: "/Proyecto 3.png",
+    tagsTecnology: ["Astro", "CSS", "Javascript"],
   },
 ];

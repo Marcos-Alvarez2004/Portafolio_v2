@@ -70,19 +70,18 @@ import '@fontsource-variable/noto-serif-oriya';
 	
 	.border-general {
 		border: .1rem solid var(--color-primary);
-	}
+	} 
 	
 	html {
 		font-family: 'Open Sans Variable', sans-serif;
 		background: var(--bg-primary);
 		color: var(--color-general);
-		scroll-behavior: smooth;
 		overflow-y: auto;
 		overflow-x: hidden;
 		transition: background .2s ease, color .2s ease;
 	}
 
-	h1 {
+	 h1, .logo {
 		color: var(--color-primary);
 		transition: color .2s ease;
 	}
@@ -94,13 +93,40 @@ import '@fontsource-variable/noto-serif-oriya';
 		transition: background .2s ease, color .2s ease;
 	}
 
+	.cursor {
+		width: 0rem;
+		height: 0rem;
+		border-width: 0.438rem;
+		border-style: solid;
+		border-color: var(--color-primary);
+		background: transparent;
+		border-radius: 50%;
+		transition: height 0.2s, width 0.2s, border-color 0.2s, border-width 0.2s;
+
+		position: fixed;
+		top: 0;
+		left: 0;
+		transform: translate(-50%, -50%);
+		border-radius: 50%;
+		z-index: 999;
+		pointer-events: none;
+	}
+
+	.cursorHover {
+		width: 1.75rem;
+		height: 1.75rem;
+		border-width: 0.313rem;
+		border-color: var(--color-general);
+		opacity: .8;
+	}
+
 	section {
 		position: relative;
 		display: flex;
 		flex-direction: column;
 		justify-content:  center;
 		align-items: center;
-	}
+	} 
 
 	img {
     background: var(--color-gray);
@@ -115,10 +141,58 @@ import '@fontsource-variable/noto-serif-oriya';
 		padding: 4rem 0;
 	}
 
-	@media (width >= 1024px) {
-		.padd {
-			padding: 0 0 8rem 0;
+	@media (pointer: coarse) {
+		.cursor {
+			display: none;
 		}
 	}
 
+	@media (width >= 64rem) {
+		.padd {
+			padding: 0 0 8rem 0;
+		}
+
+		section {
+			display: flex;
+			align-items: normal;
+		}
+	} 
 </style>
+
+<script>
+// DOM ELEMENTS
+const cursor = document.querySelector(".cursor") as HTMLElement;
+const buttons = document.querySelectorAll("button");
+const a = document.querySelectorAll("a");
+// ARRAY
+const cursorHover = [...buttons, ...a];
+// CURSOR DETECTION
+window.addEventListener("mousemove", function (e) {
+	const posX = e.clientX;
+	const posY = e.clientY;
+
+	cursor?.animate(
+		{
+			left: `${posX}px`,
+			top: `${posY}px`,
+		},
+		{ duration: 500, fill: "forwards" }
+	);
+});
+// HOVER CURSOR
+cursorHover.forEach((e) => {
+	e.addEventListener("mouseover", () => {
+		cursor.classList.add("cursorHover");
+	})
+
+	e.addEventListener("mouseout", () => {
+		cursor.classList.remove("cursorHover");
+	})
+});
+// RESET PAGE
+window.addEventListener("beforeunload", () => {
+	setTimeout(()=> {
+		window.scrollTo(0, 0);
+	}, 0);
+});
+</script>

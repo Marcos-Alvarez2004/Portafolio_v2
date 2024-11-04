@@ -13,20 +13,27 @@ import Contact from '@/sections/Contact.astro';
 
 <Layout title="Marcos Alvarez">
 	<Sidebar />
-	<main class="lg:pl-60 md:max-w-[40rem] lg:max-w-[62.5rem] lg:mx-auto md:mx-auto mx-4">
-		<!-- <Hero /> -->
+	<main class="lg:pl-60 md:max-w-[40rem] lg:max-w-[62.5rem] lg:mx-auto md:mx-auto mx-4 relative">
 		<Projects />
 		<About />
 		<Contact />
-		
-		
-		<!-- <Footer /> -->
+		<!-- <Footer />  -->
 	</main>
-	
+	<div class="cursor"></div>
 </Layout>
 
 <style>
 	main {
 		position: relative;
 	}
+
+	h1 {
+		font-size: 10rem;
+		color: black;
+		text-align: center;
+		-webkit-text-fill-color: #1a1a1a;
+		-webkit-text-stroke-width: 1px;
+		-webkit-text-stroke-color: #ffffff;
+	}
 </style>
+

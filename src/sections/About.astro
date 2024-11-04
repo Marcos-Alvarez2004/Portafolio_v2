@@ -1,19 +1,28 @@
 ---
 import TitleSections from "@/components/TitleSections.astro"
+import ScrollAnimation from "@/components/scrollAnimation/ScrollAnimation"
 ---
 
+
 <section id="desarrollador" class="padd">
-  <TitleSections title_section="Sobre Mí" />
+  <ScrollAnimation client:load>
+    <TitleSections title_section="Sobre Mí" />
+  </ScrollAnimation>
+  <ScrollAnimation client:load>
     <p>
       Hey soy <b>Marcos Alvarez Medero</b>, tengo 21 años y vivo en Buenos Aires, Argentina. Mi principial rol que mejor se desempeñarme es Full-stack developer.
     </p>
     <br>
+  </ScrollAnimation>
+  <ScrollAnimation client:load>
     <p>
       Adquirí mis conocimientos a través de cursos en línea. Comencé con el curso <b>Programador Web Inicial</b> en la UTN, que se llevó a cabo del 13/12/2022 al 14/03/2023.
-      <br> 
+    <br> 
       Posteriormente, continué con la <b>Diplomatura en Programación Web Full Stack con React.js</b>, también en la UTN, desde el 25/08/2023 hasta el 16/02/2024.<br>En estos cursos, aprendí desde lo básico hasta los conceptos más avanzados de los lenguajes que utilizo continuamente. Aunque los cursos ya los he finalizado, sigo en constante aprendizaje, ya que una de las cosas más interesantes del mundo web es que siempre hay algo nuevo por descubrir.
     </p>
-    <br>  
+  </ScrollAnimation>
+    <br>
+  <ScrollAnimation client:load>
     <p>
       Comencé mis primeros proyectos utilizando <strong class="text-orange-500">HTML</strong>, <strong class="text-blue-500">CSS</strong> y <strong class="text-yellow-500">JavaScript</strong>. Con el tiempo, me especialicé en <strong class="text-sky-500">React</strong> y <strong class="text-red-500">Astro</strong>.
       Para el desarrollo del lado del servidor, prefiero trabajar con <strong class="text-green-500">Node.js</strong> y <strong class="text-gray-500">Express</strong>.
@@ -22,14 +31,17 @@ import TitleSections from "@/components/TitleSections.astro"
     <p>         
       Siempre estoy en constante aprendizaje y mejora, buscando las mejores soluciones a los problemas y los diseños más eficientes para las <b>webs modernas</b>. Estoy convencido de que el conocimiento abre las puertas a nuevas oportunidades, por lo que aprender, aplicar y seguir creando es lo que más me apasiona.
     </p>
+  </ScrollAnimation> 
     <br>
+  <ScrollAnimation client:load>
     <p>
       Me gustaría participar en proyectos colaborativos con otros desarrolladores. 
       <br>
       Gracias a mi experiencia en diversos proyectos, me siento seguro de poder aportar y colaborar en la creación de soluciones innovadoras.
       <br>
-      Aquí te dejo mi <b><a href='/me.jpg' class='hover:underline cursor-pointer'>CV</a></b> por si existe alguna oportunidad laboral disponible.
-    </p>                   
+      Aquí te dejo mi <b><a href='/CV MARCOS ALVAREZ.pdf' class='hover:underline cursor-pointer'>CV</a></b> por si existe alguna oportunidad laboral disponible.
+    </p>
+  </ScrollAnimation>                   
 </section>
 
 <style>
