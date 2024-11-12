@@ -1,0 +1,123 @@
+<div id="bgStars" class="fixed w-full h-full inset-0"></div>
+
+<script>
+import * as THREE from "three";
+
+const bgStars = document.getElementById("bgStars");
+
+// Función para obtener colores desde las variables CSS
+const getColors = () => {
+    const styles = getComputedStyle(document.documentElement);
+    return {
+        backgroundColor: styles.getPropertyValue("--bg-primary").trim(),
+        starColor: styles.getPropertyValue("--color-primary").trim(),
+    };
+};
+
+// Configuración de la escena de Three.js
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer();
+
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setClearColor(getColors().backgroundColor);
+bgStars?.appendChild(renderer.domElement);
+
+// Crear una textura de estrella
+const createStarTexture = () => {
+    const size = 64;
+    const canvas = document.createElement("canvas");
+    canvas.width = size;
+    canvas.height = size;
+    const ctx = canvas.getContext("2d");
+    
+    if (ctx) {
+        ctx.fillStyle = "white";
+        ctx.beginPath();
+        
+        // Dibujar estrella de 5 puntas
+        const xCenter = size / 2;
+        const yCenter = size / 2;
+        const outerRadius = size / 2;
+        const innerRadius = size / 4;
+        
+        for (let i = 0; i < 5; i++) {
+            ctx.lineTo(
+                xCenter + outerRadius * Math.cos((18 + i * 72) * Math.PI / 180),
+                yCenter - outerRadius * Math.sin((18 + i * 72) * Math.PI / 180)
+            );
+            ctx.lineTo(
+                xCenter + innerRadius * Math.cos((54 + i * 72) * Math.PI / 180),
+                yCenter - innerRadius * Math.sin((54 + i * 72) * Math.PI / 180)
+            );
+        }
+        
+        ctx.closePath();
+        ctx.fill();
+    }
+    
+    return new THREE.CanvasTexture(canvas);
+};
+
+// Geometría y material inicial de las estrellas con color desde CSS
+const starGeometry = new THREE.BufferGeometry();
+const starCount = 10000;
+const starPositions = new Float32Array(starCount * 3);
+for (let i = 0; i < starCount * 3; i++) {
+    starPositions[i] = (Math.random() - 0.5) * 2000;
+}
+starGeometry.setAttribute("position", new THREE.BufferAttribute(starPositions, 3));
+
+const colors = getColors();
+const starMaterial = new THREE.PointsMaterial({
+    color: colors.starColor,
+    size: 3,
+    map: createStarTexture(),
+    transparent: true,
+    alphaTest: 0.5,
+});
+
+const stars = new THREE.Points(starGeometry, starMaterial);
+scene.add(stars);
+
+// Función para actualizar el color de fondo y de las estrellas cuando cambia el tema
+const updateColors = () => {
+    const { backgroundColor, starColor } = getColors();
+    renderer.setClearColor(backgroundColor);
+    starMaterial.color.set(starColor); // Cambia el color de las estrellas
+};
+
+// Observador para detectar cambios en el tema y actualizar los colores
+const observer = new MutationObserver(updateColors);
+observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+// Animación
+function animateStars() {
+    requestAnimationFrame(animateStars);
+
+    // Movimiento de las estrellas
+    stars.rotation.y += 0.0005;
+    stars.rotation.x += 0.0002;
+
+    // Movimiento de las estrellas hacia abajo
+    const positions = stars.geometry.attributes.position.array;
+    for (let i = 0; i < positions.length; i += 3) {
+        positions[i + 1] -= 0.05;
+        if (positions[i + 1] < -1000) {
+            positions[i + 1] = 1000;
+        }
+    }
+    stars.geometry.attributes.position.needsUpdate = true;
+
+    renderer.render(scene, camera);
+}
+
+// Ajuste de tamaño de pantalla
+window.addEventListener("resize", () => {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+});
+
+animateStars();
+</script>

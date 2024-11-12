@@ -1,20 +1,20 @@
-<header aria-labelledby="menuIcon" class="boxShadow fixed z-50 w-full lg:h-full lg:w-56 flex lg:flex-col justify-between items-center boxShadow">
+<header aria-labelledby="menuIcon" class="boxShadow fixed z-50 w-full lg:h-full lg:w-56 flex lg:flex-col justify-between items-center">
   <!-- RESPONSIVE -->
    <!-- LEFT MOBILE -->
   <div class="flex justify-center items-center text-2xl gap-x-4 lg:hidden">
-    <button id="menuOpenIcon"><i class="bx bx-menu"></i></button>
+    <button id="menuOpenIcon" aria-label="Abrir menu"><i class="bx bx-menu"></i></button>
     <button class="dark-mode cursor-pointer" aria-label="Activar modo oscuro"><i class='bx bx-moon'></i></button>
     <button class="light-mode cursor-pointer" aria-label="Activar modo blanco"><i class='bx bx-sun'></i></button>
   </div>
  <!-- RIGHT MOBILE -->
   <div class="lg:hidden flex justify-center items-center gap-x-2">
     <a href="/hero.svg" class="btn px-4 py-2 rounded-md">Resumen</a>
-    <a href="#" class="text-3xl font-bold logo">M</a>
+    <a href="/" class="text-3xl font-bold logo">M</a>
   </div>
   <nav id="menuReponsive" class="flex flex-col justify-between items-center lg:w-full h-full">
     <div class="flex lg:flex-col lg:gap-y-8 justify-between items-center borderDiv pb-4">
       <div>
-        <a href="#"><h1 aria-labelledby="Marcos" class="text-2xl italic">Marcos Alvarez</h1></a>
+        <a href="/"><h1 aria-labelledby="Marcos" class="text-2xl italic">Marcos Alvarez</h1></a>
         <h4 class="text-sm font-medium">Full-Stack Developer</h4>
       </div>
       <!-- BTN RESPONSIVE OPEN MENU -->
@@ -52,8 +52,8 @@
     </div>
 <!-- SOCIAL LINKS -->
     <ul class="text-3xl flex justify-center items-center lg:mb-0 mb-2 lg:pt-0 pt-4 boderSocial">
-      <a href="#" class="p-4 social"><i class='bx bxl-github'></i></a>
-      <a href="#" class="p-4 social"><i class='bx bxl-linkedin-square'></i></i></a>
+      <a aria-label="Github" target="_blank" rel="noopener noreferrer" href="https://github.com/Marcos-Alvarez2004" class="p-4 social"><i class='bx bxl-github'></i></a>
+      <a aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/marcosalvarezmedero?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="p-4 social"><i class='bx bxl-linkedin-square'></i></i></a>
     </ul>
   </nav>
 </header>
@@ -107,57 +107,13 @@ document.addEventListener("DOMContentLoaded", ()=> {
   
   sections.forEach((section) => observer.observe(section))
 });
-
-// VARIABLES THEME CHANGES
-const darkBtnMode = document.querySelectorAll(".dark-mode");
-const lightBtnMode = document.querySelectorAll(".light-mode");
-			
-darkBtnMode.forEach((e : any) => {
-  e.addEventListener("click", setLightMode)
-})
-
-lightBtnMode.forEach((e : any) => {
-  e.addEventListener("click", setDarkMode)
-})
-		
-function setDarkMode() {
-	setUserTheme("dark");
-}
-		
-function setLightMode() {
-	setUserTheme("light")
-}
-		
-// LOCALSTORAGE THEME
-const userTheme = localStorage.getItem("theme")
-const lightQuery = window.matchMedia("(prefers-color-theme): light")
-    
-if (userTheme === "light" || (!userTheme && lightQuery.matches)) {
-  setTheme("light")
-}
-    
-lightQuery.addEventListener("change", function (e) {
-  if (!localStorage.getItem("theme"))
-  setTheme(e.matches ? "light" : "dark")
-  }
-)
-    
-function setTheme(newTheme: any) {
-  document.documentElement.setAttribute("data-theme", newTheme)
-}
-    
-function setUserTheme(newTheme: any) {
-  document.documentElement.setAttribute("data-theme", newTheme)
-  localStorage.setItem("theme", newTheme)
-}
 </script>
 
 <style>
 /* GENERAL */
 header {
-  background: var(--bg-primary);
   padding: 1rem;
-  transition: background .2s ease;
+  transition: background .2s;
 }
 
 h4 {
@@ -263,6 +219,10 @@ button:hover {
 }
 /* MEDIA QUERY */
 @media (width < 64rem) {
+  header {
+    background-color: var(--bg-primary);
+  }
+
   nav {
   background-color: var(--bg-primary);
   display: flex;

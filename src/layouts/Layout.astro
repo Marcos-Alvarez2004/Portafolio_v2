@@ -9,6 +9,8 @@ const { title } = Astro.props;
 import '@fontsource-variable/open-sans/wdth.css';
 // FONT NOTO-SERIF-ORIYA
 import '@fontsource-variable/noto-serif-oriya';
+// BACKGROUND
+import Background from '@/components/background/Background.astro';
 ---
 
 <!doctype html>
@@ -22,19 +24,22 @@ import '@fontsource-variable/noto-serif-oriya';
 		<!-- BOXICON -->
 		<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 		<!-- FAVICON -->
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
 		<!-- TITLE -->
 		<title>{title}</title>
 	</head>
 	<body>
+		<Background />
+		<div class="cursor"></div>
 		<slot />
 	</body>
 	</html>
 <!-- GLOBAL STYLE -->
 <style is:global>
 	:root {
-		--color-primary: #892cdc;
+		--color-primary: #bc6ff1;
 		--color-general: #f5f5f5;
+		--color-btn-text: #111111;
 		--color-gray: #666666;
 		--bg-primary: #191919;
 		--bg-gray: #131313;
@@ -44,11 +49,13 @@ import '@fontsource-variable/noto-serif-oriya';
 		--background-opacity: rgba(137, 44, 220, .7);
 		--background-hover-btn: #bc6ff1;
 		--color-hover-btn: #111111;
+		transition: var(--bg-primary) .2s, var(--color-primary) .2s;
 	}
 
 	:root[data-theme="light"] {
-		--color-primary: #bc6ff1;
+		--color-primary: #892cdc;
 		--color-general: #111111;
+		--color-btn-text: #f5f5f5;
 		--color-gray: #999999;
 		--bg-primary: #f5f5f5;
 		--bg-gray: #cfcfcf;
@@ -58,6 +65,7 @@ import '@fontsource-variable/noto-serif-oriya';
 		--background-opacity: rgba(188, 111, 241, .7);
 		--background-hover-btn: #892cdc;
 		--color-hover-btn: #f5f5f5;
+		transition: var(--bg-primary) .2s, var(--color-primary) .2s;
 	}
 	
 	:root[data-theme="light"] .dark-mode {
@@ -91,6 +99,10 @@ import '@fontsource-variable/noto-serif-oriya';
 		background-color: var(--color-primary);
 		font-weight: 700;
 		transition: background .2s ease, color .2s ease;
+	}
+
+	.btn {
+		color: var(--color-btn-text);
 	}
 
 	.cursor {
@@ -156,12 +168,65 @@ import '@fontsource-variable/noto-serif-oriya';
 			display: flex;
 			align-items: normal;
 		}
-	} 
+	}
+	
+	@media (prefers-reduced-motion: reduce) {
+		#bgStars {
+			display: none;
+		}
+
+		.cursor {
+			display: none;
+		}
+	}
 </style>
 
-<script>
+<script defer>
+// VARIABLES THEME CHANGES
+const darkBtnMode = document.querySelectorAll(".dark-mode");
+const lightBtnMode = document.querySelectorAll(".light-mode");
+			
+darkBtnMode.forEach((e) => {
+  e.addEventListener("click", setLightMode)
+})
+
+lightBtnMode.forEach((e) => {
+  e.addEventListener("click", setDarkMode)
+})
+		
+function setDarkMode() {
+	setUserTheme("dark");
+}
+		
+function setLightMode() {
+	setUserTheme("light")
+}
+		
+// LOCALSTORAGE THEME
+const userTheme = localStorage.getItem("theme")
+const lightQuery = window.matchMedia("(prefers-color-theme): light")
+    
+if (userTheme === "light" || (!userTheme && lightQuery.matches)) {
+  setTheme("light")
+}
+    
+lightQuery.addEventListener("change", function (e) {
+  if (!localStorage.getItem("theme"))
+  setTheme(e.matches ? "light" : "dark")
+  }
+)
+    
+function setTheme(newTheme) {
+  document.documentElement.setAttribute("data-theme", newTheme)
+}
+    
+function setUserTheme(newTheme) {
+  document.documentElement.setAttribute("data-theme", newTheme)
+  localStorage.setItem("theme", newTheme)
+}
+
 // DOM ELEMENTS
-const cursor = document.querySelector(".cursor") as HTMLElement;
+const cursor = document.querySelector(".cursor");
 const buttons = document.querySelectorAll("button");
 const a = document.querySelectorAll("a");
 // ARRAY

@@ -16,47 +16,47 @@ import ScrollAnimation from "@/components/scrollAnimation/ScrollAnimation"
       </ScrollAnimation>
       <div class="input-group w-full">
         <ScrollAnimation client:load>
-          <input required type="text" name="name" class="input">
-          <label class="user-label">Nombre</label>
+          <input required type="text" name="name" id="name" class="input" autocomplete="nope" placeholder=" ">
+          <label class="user-label" for="name">Nombre</label>
         </ScrollAnimation>
       </div>
       <div class="input-group w-full">
         <ScrollAnimation client:load>
-          <input required type="text" name="email" class="input">
-          <label class="user-label">Gmail</label>
+          <input required type="email" name="email" id="email" class="input" autocomplete="nope"  placeholder=" ">
+          <label class="user-label" for="email">Gmail</label>
         </ScrollAnimation>
       </div>
         <div class="input-group w-full mt-4">
           <ScrollAnimation client:load>
-            <textarea name="message" required class="w-full input bg-transparent rounded min-h-56 resize-none" maxlength="500"></textarea>
-            <label class="user-label">Mensaje</label>
+            <textarea name="message" id="message" required class="w-full input bg-transparent rounded min-h-56 resize-none" maxlength="500" autocomplete="nope"  placeholder=" "></textarea>
+            <label class="user-label" for="message">Mensaje</label>
           </ScrollAnimation>
         </div>
         
       <div class="flex flex-col gap-y-8 lg:flex-row lg:gap-y-0 justify-center lg:justify-between lg:items-center">
         <div class="flex justify-center items-center flex-col gap-4">
           <ScrollAnimation client:load>
-            <h3 class="text-md underline">Redes sociales:</h3>
+            <h1 class="text-md underline">Redes sociales:</h1>
           </ScrollAnimation>
-          <ul class="flex text-3xl">
+          <div class="flex text-3xl list-none">
           <ScrollAnimation client:load>
-            <a href="#">
-              <li class="cursor-pointer hoverColor">
+            <a aria-label="Github" target="_blank" rel="noopener noreferrer" href="https://github.com/Marcos-Alvarez2004">
+              <div class="cursor-pointer hoverColor">
                 <i class='bx bxl-github opacity-60 px-4'></i>
-              </li>
+              </div>
             </a>
           </ScrollAnimation>
           <ScrollAnimation client:load>
-            <a href="#">
-              <li class="cursor-pointer hoverColor">
+            <a aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/marcosalvarezmedero?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
+              <div class="cursor-pointer hoverColor">
                 <i class='bx bxl-linkedin-square opacity-60 px-4'></i>
-              </li>
+              </div>
             </a>
           </ScrollAnimation>
-          </ul>
+          </div>
         </div>
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="http://localhost:4321/#contacto">
+        <input type="hidden" name="_next" value="http://localhost:4321/mensaje">
         <ScrollAnimation client:load>   
             <button class="py-4 text-center rounded-md lg:w-64 w-full" type="submit">
               Enviar 
@@ -74,6 +74,11 @@ button:hover {
 }
 
 /* INPUT */
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 50px var(--bg-primary) inset;
+  -webkit-text-fill-color: var(--color-general);
+}
+
 .input-group {
   position: relative;
 }
@@ -104,12 +109,12 @@ b, h3, h2 {
   transition: 150ms cubic-bezier(0.4,0,0.2,1);
 }
 
-.input:focus, .input:valid {
+.input:focus, .input:not(:placeholder-shown) {
   outline: none;
   border: .1rem solid var(--color-primary);
 }
 
-.input:focus ~ label, .input:valid ~ label {
+.input:focus ~ label, .input:not(:placeholder-shown) ~ label {
   transform: translateY(-50%) scale(0.8);
   background-color: var(--bg-primary);
   padding: 0 .5rem;
@@ -120,5 +125,16 @@ b, h3, h2 {
   opacity: 1;
   color: var(--color-primary);
 }
-
 </style>
+
+<script type="text/javascript" is:inline>
+window.addEventListener('change',e=>{
+        if(e.target.matches('input')){
+            let data = new String(e.target.value)
+            setTimeout(()=>{
+                e.target.value = ''
+                e.target.value = data
+            },10)
+        }
+    })
+</script>

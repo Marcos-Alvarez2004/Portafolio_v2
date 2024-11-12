@@ -26,7 +26,9 @@ const scrollAnimation: React.FC<CardVariantProps> = ({ children }) => {
       whileInView="onscreen"
       viewport={{ once: true, amount: 0.3 }}
     >
-      <motion.div variants={cardVariant}>{children}</motion.div>
+      <motion.div id="animationScroll" variants={cardVariant}>
+        {children}
+      </motion.div>
     </motion.div>
   );
 };

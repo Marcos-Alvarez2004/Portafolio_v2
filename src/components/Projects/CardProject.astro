@@ -13,7 +13,7 @@ interface Props {
 const {titleCard, descriptionCard, linkCard, imgCard, altImgCard, tagsTecnology} = Astro.props
 ---
 <ScrollAnimation client:load>
-  <a href={linkCard} class="md:p-2 flex flex-col md:flex-row mb-16 rounded h-auto w-auto">
+  <a target="_blank" rel="noopener noreferrer" href={linkCard} class="md:p-2 flex flex-col md:flex-row mb-16 rounded h-auto w-auto">
     <div class="h-full w-full lg:w-1/2 lg:h-3/4 block p-2">
     <img src={imgCard} alt={altImgCard} class="w-full h-full object-cover md:rounded rounded-t" />
     </div>
