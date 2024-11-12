@@ -1,8 +1,8 @@
-![Logo](/favicon.png)
+![Logo](public/favicon.png)
 
 # Portafolio v2
 
-![PortafolioImg](/portafolio.png)
+![PortafolioImg](public/portafolio.png)
 
 ### Portafolio Personal de Marcos Alvarez
 
