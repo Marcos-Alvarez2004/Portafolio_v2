@@ -33,6 +33,15 @@ import Background from '@/components/background/Background.astro';
 		<div class="cursor"></div>
 		<slot />
 	</body>
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KKS3E9CTDB" ></script>
+<script type="text/javascript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KKS3E9CTDB');
+</script>
 	</html>
 <!-- GLOBAL STYLE -->
 <style is:global>
