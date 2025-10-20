@@ -21,7 +21,7 @@ const {titleCard, descriptionCard, linkCard, imgCard, altImgCard, tagsTecnology}
       <div class="title flex items-center justify-center md:justify-start gap-x-2 my-8 md:my-0">
         <span class="font-semibold text-xl md:text-lg md:font-medium hover:underline">{titleCard}</span>
     </div>
-      <p class="md:mt-2 w-auto my-8 md:my-0 text-md md:text-left">{descriptionCard}</p> 
+      <p class="md:mt-2 w-auto my-8 md:my-0 text-md md:text-left"  style={{ whiteSpace: "pre-line" }}>{descriptionCard}</p> 
         <div class="my-8 md:my-6 flex flex-wrap justify-center items-center gap-4">
           {tagsTecnology.map((tag) => (
             <span class="tagsTecnology">{tag}</span>
