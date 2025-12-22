@@ -23,6 +23,26 @@ export const projects = [
     ],
   },
   {
+    titleCard: "Traductor de Google CLON",
+    altImgCard: "Traductor de Google CLON",
+    linkCard: "https://clon-traductor-google.netlify.app/",
+    descriptionCard:
+      "Proyecto web inspirado en Google Translate que realiza las principales funciones de traducción de texto.\n\n" +
+      "Características principales:\n\n" +
+      "• Selección manual del idioma de texto escrito y del idioma a traducir.\n" +
+      "• Detección automática del idioma del texto ingresado.\n" +
+      "• Traducción entre varios idiomas.\n" +
+      "• Copiado del texto traducido al portapapeles.\n" +
+      "• Reconocimiento de voz para la escritura de texto.\n" +
+      "• Función de limpieza de texto escrito.\n" +
+      "• Síntesis de voz para reproducir el texto escrito o traducido.\n\n" +
+      "Idiomas soportados:\n" +
+      "Español, Inglés, Francés, Portugués, Alemán, Ruso, Japonés y Chino.",
+
+    imgCard: "Proyectos/proyecto_5.png",
+    tagsTecnology: ["Html", "Css", "Javascript", "API IA Navegador"],
+  },
+  {
     titleCard: "Gaming Eccomerce",
     altImgCard: "Gaming Eccomerce",
     linkCard: "https://gaming-eccomerce.onrender.com/",
